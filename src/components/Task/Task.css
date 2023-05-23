@@ -1,0 +1,39 @@
+.task {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 1em;
+  align-items: start;
+  width: 100%;
+}
+
+.task-title {
+  margin: 0;
+  padding: 0;
+}
+
+.task-controllers {
+  display: flex;
+  gap: 0.5em;
+}
+
+.task-button {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.task-status {
+  text-align: center;
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.statusComplete {
+  background-color: green;
+}
+
+.statusIncomplete {
+  background-color: red;
+}
