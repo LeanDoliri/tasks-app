@@ -1,8 +1,8 @@
 .main {
-  max-width: 100vw;
+  width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 100%;
   grid-template-rows: repeat(3, 1fr) 70%;
   justify-content: center;
   justify-items: center;
