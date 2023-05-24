@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./InputEditTask.css"
+import inputEditIcon from "../../assets/inputEditIcon.svg";
+import "./InputEditTask.css";
 
 export function InputEditTask({ editTask, oldTitle }) {
   const [updatedTask, setUpdatedTask] = useState("");
@@ -13,16 +14,20 @@ export function InputEditTask({ editTask, oldTitle }) {
   };
 
   return (
-    <>
-      <form onSubmit={updatingTask}>
-        <input
-          className="inputEditTask-input"
-          type="text"
-          placeholder={oldTitle}
-          value={updatedTask}
-          onChange={(e) => setUpdatedTask(e.target.value)}
-        />
-      </form>
-    </>
+    <form className="inputEditTask-form" onSubmit={updatingTask}>
+      <input
+        className="inputEditTask-input"
+        type="text"
+        placeholder={oldTitle}
+        value={updatedTask}
+        onChange={(e) => setUpdatedTask(e.target.value)}
+      />
+      <img
+        className="inputEditTask-icon"
+        src={inputEditIcon}
+        alt="input-icon"
+        onClick={updatingTask}
+      />
+    </form>
   );
 }

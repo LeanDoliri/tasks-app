@@ -1,10 +1,10 @@
 .filter {
-    padding: 0.5em;
-    border-radius: 6px;
-    cursor: pointer;
+  padding: 0.5em;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .active {
-    background: white;
-    color: black;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
 }

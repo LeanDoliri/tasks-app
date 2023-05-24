@@ -33,25 +33,26 @@ export function Task({ task, changeStatus, deleteTask, updateTask }) {
     status ? "statusComplete" : "statusIncomplete"
   }`;
 
+  const titleClass = `task-title ${status ? "line-through" : ""}`;
+
   return (
     <article className="task">
-      <p className="task-title">{title}</p>
+      <p className={titleClass}>{title}</p>
       <div className="task-controllers">
         <span className={statusClass} onClick={handleStatus}>
           {status ? "complete" : "incomplete"}
         </span>
         <img
-          src={deleteIcon}
-          alt="delete-icon"
-          className="task-button"
-          onClick={handleDelete}
-        />
-
-        <img
           src={editIcon}
           alt="edit-icon"
           className="task-button"
           onClick={handleEdit}
+        />
+        <img
+          src={deleteIcon}
+          alt="delete-icon"
+          className="task-button"
+          onClick={handleDelete}
         />
       </div>
     </article>

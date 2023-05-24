@@ -1,3 +1,5 @@
-export function Title () {
-    return <h1>Tasks</h1>
+import "./Title.css";
+
+export function Title() {
+  return <h1 className="title">Tasks App</h1>;
 }

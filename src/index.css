@@ -1,19 +1,23 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  font-family: 'Noto Sans KR', sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --color-text: #1d111d;
+  --color-bg: #f5eff6;
+  --color-accent: #79b4b0;
+  --color-secondary: #fdfcfd;
+  --shadow-color: 292deg 9% 60%;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   max-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
