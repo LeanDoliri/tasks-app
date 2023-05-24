@@ -61,20 +61,21 @@ function App() {
   }, [activeFilter, tasksList]);
 
   return (
-    <>
+    <main className="main">
       <Title />
       <InputTask addNewTask={addNewTask} />
+      <ListOfFilters
+        setActiveFilter={setActiveFilter}
+        activeFilter={activeFilter}
+      />
       <ListOfTasks
         tasksList={filtered}
         changeStatus={changeStatus}
         deleteTask={deleteTask}
         updateTask={updateTask}
       />
-      <ListOfFilters
-        setActiveFilter={setActiveFilter}
-        activeFilter={activeFilter}
-      />
-    </>
+      
+    </main>
   );
 }
 
