@@ -1,8 +1,6 @@
 export const newTask = (tasksList, title) => {
-  const lastId = tasksList.length > 0 ? tasksList[tasksList.length - 1].id : 1;
-
   const newTask = {
-    id: lastId + 1,
+    id: `taskAt:${new Date()}`,
     title,
     status: false,
   };
