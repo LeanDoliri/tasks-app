@@ -1,4 +1,4 @@
-export const newTask = (tasksList, title) => {
+export function newTask ({tasksList, title}) {
   const newTask = {
     id: `taskAt:${new Date()}`,
     title,
@@ -11,7 +11,7 @@ export const newTask = (tasksList, title) => {
   return sortTaskList(itemsList);
 };
 
-export const setStatus = (tasksList, id) => {
+export function setStatus ({tasksList, id}) {
   const updatedTasksList = tasksList.map((item) => {
     if (item.id === id) {
       return { ...item, status: !item.status };
@@ -22,12 +22,12 @@ export const setStatus = (tasksList, id) => {
   return sortTaskList(updatedTasksList);
 };
 
-export const removeTask = (tasksList, id) => {
+export function removeTask ({tasksList, id}) {
   const updateTasksList = tasksList.filter((item) => item.id !== id);
   return sortTaskList(updateTasksList);
 };
 
-export const modifyTask = (tasksList, id, newValue) => {
+export function modifyTask ({tasksList, id, newValue}) {
   const updateTasksList = tasksList.filter((item) => item.id !== id);
 
   const updatedTask = tasksList.find((item) => item.id === id);
@@ -38,11 +38,11 @@ export const modifyTask = (tasksList, id, newValue) => {
   return sortTaskList(updateTasksList);
 };
 
-export const saveInLocalStorage = (data) => {
-  window.localStorage.setItem("tasks", JSON.stringify(data));
+export function saveInLocalStorage ({tasksList}) {
+  window.localStorage.setItem("tasks", JSON.stringify(tasksList));
 };
 
-const sortTaskList = (list) => {
+function sortTaskList (list) {
   const sortList = list.sort((a, b) => {
     if (a.status && !b.status) {
       return 1;

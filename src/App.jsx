@@ -21,28 +21,28 @@ function App() {
 
   const { filtered, activeFilter, setActiveFilter } = useFilter({ tasksList });
 
-  const addNewTask = (title) => {
-    const newTasksList = newTask(tasksList, title);
+  function addNewTask (title) {
+    const newTasksList = newTask({tasksList, title});
     setTasksList(newTasksList);
   };
 
-  const changeStatus = (id) => {
-    const newTasksList = setStatus(tasksList, id);
+  function changeStatus (id) {
+    const newTasksList = setStatus({tasksList, id});
     setTasksList(newTasksList);
   };
 
-  const deleteTask = (id) => {
-    const newTasksList = removeTask(tasksList, id);
+  function deleteTask (id) {
+    const newTasksList = removeTask({tasksList, id});
     setTasksList(newTasksList);
   };
 
-  const updateTask = (id, newValue) => {
+  function updateTask ({id, newValue}) {
     const newTasksList = modifyTask(tasksList, id, newValue);
     setTasksList(newTasksList);
   };
 
   useEffect(() => {
-    saveInLocalStorage(tasksList);
+    saveInLocalStorage({tasksList});
   }, [tasksList]);
 
   return (

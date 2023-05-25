@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FILTERS } from "../constants";
 
-export const useFilter = ({ tasksList }) => {
+export function useFilter ({ tasksList }) {
   const [filtered, setFiltered] = useState(tasksList);
   const [activeFilter, setActiveFilter] = useState(FILTERS.showAll);
 
