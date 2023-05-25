@@ -13,7 +13,6 @@ import {
   saveInLocalStorage,
 } from "./logics/functionsTasks";
 
-
 function App() {
   const [tasksList, setTasksList] = useState(() => {
     const tasksInMemory = window.localStorage.getItem("tasks");
@@ -27,25 +26,21 @@ function App() {
   const addNewTask = (title) => {
     const newTasksList = newTask(tasksList, title);
     setTasksList(newTasksList);
-    saveInLocalStorage(newTasksList);
   };
 
   const changeStatus = (id) => {
     const newTasksList = setStatus(tasksList, id);
     setTasksList(newTasksList);
-    saveInLocalStorage(newTasksList);
   };
 
   const deleteTask = (id) => {
     const newTasksList = removeTask(tasksList, id);
     setTasksList(newTasksList);
-    saveInLocalStorage(newTasksList);
   };
 
   const updateTask = (id, newValue) => {
     const newTasksList = modifyTask(tasksList, id, newValue);
     setTasksList(newTasksList);
-    saveInLocalStorage(newTasksList);
   };
 
   useEffect(() => {
@@ -59,6 +54,10 @@ function App() {
       setFiltered(updateTasksList);
     }
   }, [activeFilter, tasksList]);
+
+  useEffect(() => {
+    saveInLocalStorage(tasksList);
+  }, [tasksList]);
 
   return (
     <main className="main">
@@ -74,7 +73,6 @@ function App() {
         deleteTask={deleteTask}
         updateTask={updateTask}
       />
-      
     </main>
   );
 }
