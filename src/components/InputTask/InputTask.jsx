@@ -5,7 +5,7 @@ import "./InputTask.css";
 export function InputTask({ addNewTask }) {
   const [newTask, setNewTask] = useState("");
 
-  const handleInput = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (newTask) {
       addNewTask(newTask);
@@ -14,7 +14,7 @@ export function InputTask({ addNewTask }) {
   };
 
   return (
-    <form onSubmit={handleInput} className="inputTask-form">
+    <form onSubmit={handleSubmit} className="inputTask-form">
       <input
         className="inputTask-input"
         type="text"
@@ -22,7 +22,9 @@ export function InputTask({ addNewTask }) {
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
       />
-      <img className="inputTask-icon" src={inputNewIcon} alt="input-icon" onClick={handleInput} />
+      <button className="inputTask-icon" type="submit">
+        <img src={inputNewIcon} alt="input-icon" />
+      </button>
     </form>
   );
 }

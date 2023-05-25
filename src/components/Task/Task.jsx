@@ -20,8 +20,8 @@ export function Task({ task, changeStatus, deleteTask, updateTask }) {
     setEdit({ id: id, value: title });
   };
 
-  const editTask = (value) => {
-    updateTask(edit.id, value);
+  const editTask = ({ newTitle }) => {
+    updateTask({ id: edit.id, newTitle });
     setEdit({ id: null, value: "" });
   };
 

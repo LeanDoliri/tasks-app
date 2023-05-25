@@ -25,5 +25,7 @@
 }
 
 .inputTask-icon {
+  border: none;
+  background: transparent;
   cursor: pointer;
 }

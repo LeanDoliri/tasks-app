@@ -3,13 +3,13 @@ import inputEditIcon from "../../assets/inputEditIcon.svg";
 import "./InputEditTask.css";
 
 export function InputEditTask({ editTask, oldTitle }) {
-  const [updatedTask, setUpdatedTask] = useState("");
+  const [newTitle, setNewTitle] = useState("");
 
   const updatingTask = (e) => {
     e.preventDefault();
-    if (updatedTask !== "") {
-      editTask(updatedTask);
-      setUpdatedTask("");
+    if (newTitle !== "") {
+      editTask({ newTitle });
+      setNewTitle("");
     }
   };
 
@@ -19,15 +19,12 @@ export function InputEditTask({ editTask, oldTitle }) {
         className="inputEditTask-input"
         type="text"
         placeholder={oldTitle}
-        value={updatedTask}
-        onChange={(e) => setUpdatedTask(e.target.value)}
+        value={newTitle}
+        onChange={(e) => setNewTitle(e.target.value)}
       />
-      <img
-        className="inputEditTask-icon"
-        src={inputEditIcon}
-        alt="input-icon"
-        onClick={updatingTask}
-      />
+      <button type="submit" className="inputEditTask-icon">
+        <img src={inputEditIcon} alt="input-icon" />
+      </button>
     </form>
   );
 }
