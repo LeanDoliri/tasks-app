@@ -4,7 +4,7 @@ import { InputTask } from "./components/InputTask/InputTask";
 import { Title } from "./components/Title/Title";
 import { ListOfTasks } from "./components/ListOfTasks/ListOfTasks";
 import { ListOfFilters } from "./components/ListOfFilters/ListOfFilters";
-import { FILTERS } from "./constants";
+import { useFilter } from "./hooks/useFilter";
 import {
   newTask,
   setStatus,
@@ -19,9 +19,7 @@ function App() {
     return tasksInMemory ? JSON.parse(tasksInMemory) : [];
   });
 
-  const [activeFilter, setActiveFilter] = useState(FILTERS.showAll);
-
-  const [filtered, setFiltered] = useState(tasksList);
+  const { filtered, activeFilter, setActiveFilter } = useFilter({ tasksList });
 
   const addNewTask = (title) => {
     const newTasksList = newTask(tasksList, title);
@@ -42,18 +40,6 @@ function App() {
     const newTasksList = modifyTask(tasksList, id, newValue);
     setTasksList(newTasksList);
   };
-
-  useEffect(() => {
-    if (activeFilter === FILTERS.showAll) {
-      setFiltered(tasksList);
-    } else if (activeFilter === FILTERS.showComplete) {
-      const updateTasksList = tasksList.filter((item) => item.status === true);
-      setFiltered(updateTasksList);
-    } else if (activeFilter === FILTERS.showIncomplete) {
-      const updateTasksList = tasksList.filter((item) => item.status === false);
-      setFiltered(updateTasksList);
-    }
-  }, [activeFilter, tasksList]);
 
   useEffect(() => {
     saveInLocalStorage(tasksList);

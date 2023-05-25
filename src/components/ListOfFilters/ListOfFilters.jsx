@@ -2,7 +2,7 @@ import { FILTERS } from "../../constants";
 import { Filter } from "../Filter/Filter";
 import "./ListOfFilters.css"
 
-export function ListOfFilters({ setActiveFilter, activeFilter }) {
+export function ListOfFilters({ activeFilter, setActiveFilter }) {
   return (
     <section className="listOfFilters">
       <Filter
