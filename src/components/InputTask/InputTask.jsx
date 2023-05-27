@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { newTask } from "../../logics/functionsTasks";
 import inputNewIcon from "../../assets/inputNewIcon.svg";
 import "./InputTask.css";
 
-export function InputTask({ addNewTask }) {
-  const [newTask, setNewTask] = useState("");
+export function InputTask({ tasksList, setTasksList }) {
+  const [title, setTitle] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newTask) {
-      addNewTask(newTask);
-      setNewTask("");
+    if (title) {
+      const newTasksList = newTask({ tasksList, title });
+      setTasksList(newTasksList);
+      setTitle("");
     }
   };
 
@@ -19,8 +21,8 @@ export function InputTask({ addNewTask }) {
         className="inputTask-input"
         type="text"
         placeholder="New task..."
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
       <button className="inputTask-icon" type="submit">
         <img src={inputNewIcon} alt="input-icon" />

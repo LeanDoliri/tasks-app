@@ -1,5 +1,5 @@
 import { Task } from "../Task/Task";
-import "./ListOfTasks.css"
+import "./ListOfTasks.css";
 
 export function ListOfTasks({
   tasksList,

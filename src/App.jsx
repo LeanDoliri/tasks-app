@@ -6,7 +6,6 @@ import { ListOfTasks } from "./components/ListOfTasks/ListOfTasks";
 import { ListOfFilters } from "./components/ListOfFilters/ListOfFilters";
 import { useFilter } from "./hooks/useFilter";
 import {
-  newTask,
   setStatus,
   removeTask,
   modifyTask,
@@ -20,11 +19,6 @@ function App() {
   });
 
   const { filtered, activeFilter, setActiveFilter } = useFilter({ tasksList });
-
-  function addNewTask(title) {
-    const newTasksList = newTask({ tasksList, title });
-    setTasksList(newTasksList);
-  }
 
   function changeStatus(id) {
     const newTasksList = setStatus({ tasksList, id });
@@ -48,7 +42,7 @@ function App() {
   return (
     <main className="main">
       <Title />
-      <InputTask addNewTask={addNewTask} />
+      <InputTask tasksList={tasksList} setTasksList={setTasksList} />
       <ListOfFilters
         setActiveFilter={setActiveFilter}
         activeFilter={activeFilter}

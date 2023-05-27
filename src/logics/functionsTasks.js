@@ -29,11 +29,9 @@ export function removeTask({ tasksList, id }) {
 
 export function modifyTask({ tasksList, id, newTitle }) {
   const updateTasksList = tasksList.filter((item) => item.id !== id);
-
   const updatedTask = tasksList.find((item) => item.id === id);
-
+  
   updatedTask.title = newTitle;
-
   updateTasksList.push(updatedTask);
 
   return sortTaskList(updateTasksList);
