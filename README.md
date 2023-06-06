@@ -11,7 +11,7 @@ https://tasks-app-leandrodoliri.netlify.app/
 - HTML
 - Node.js
 
-# 🚀 Fucnionalidades:
+# 🚀 Funcionalidades:
 - Crear tareas.
 - Editar tareas.
 - Marcar tareas como incompletas o completas.
