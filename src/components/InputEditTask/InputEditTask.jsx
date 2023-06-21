@@ -1,9 +1,10 @@
 import { useState } from "react";
 import inputEditIcon from "../../assets/inputEditIcon.svg";
+import undoIcon from "../../assets/undoIcon.svg";
 import "./InputEditTask.css";
 
 export function InputEditTask({ editTask, oldTitle }) {
-  const [newTitle, setNewTitle] = useState("");
+  const [newTitle, setNewTitle] = useState(oldTitle);
 
   const updatingTask = (e) => {
     e.preventDefault();
@@ -11,6 +12,11 @@ export function InputEditTask({ editTask, oldTitle }) {
       editTask({ newTitle });
       setNewTitle("");
     }
+  };
+
+  const undoUpdate = (e) => {
+    e.preventDefault();
+    editTask({ newTitle: oldTitle });
   };
 
   return (
@@ -24,6 +30,9 @@ export function InputEditTask({ editTask, oldTitle }) {
       />
       <button type="submit" className="inputEditTask-icon">
         <img src={inputEditIcon} alt="input-icon" />
+      </button>
+      <button onClick={undoUpdate} className="inputEditTask-icon">
+        <img src={undoIcon} alt="undo-icon" />
       </button>
     </form>
   );

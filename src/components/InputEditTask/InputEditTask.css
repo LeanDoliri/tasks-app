@@ -1,5 +1,5 @@
 .inputEditTask-form {
-  max-width: 90%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +19,10 @@
   font-size: 1.2em;
   padding: 0.5em;
   max-width: 100%;
+}
+
+.inputEditTask-input::placeholder{
+  font-style: italic;
 }
 
 .inputEditTask-icon {
