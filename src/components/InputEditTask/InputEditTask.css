@@ -1,11 +1,12 @@
 .inputEditTask-form {
-  max-width: 100%;
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5em;
   border-radius: 6px 6px 0 0;
   background-color: var(--color-secondary);
+  border-bottom: 2px solid var(--color-accent);
   box-shadow: 0px 1px 1.5px hsl(var(--shadow-color) / 0),
   0px 4px 6px hsl(var(--shadow-color) / 0.52);
 }
@@ -13,12 +14,11 @@
 .inputEditTask-input {
   background: transparent;
   border: none;
-  border-bottom: 2px solid var(--color-accent);
   outline: none;
   color: var(--color-text);
   font-size: 1.2em;
   padding: 0.5em;
-  max-width: 100%;
+  width: 90%;
 }
 
 .inputEditTask-input::placeholder{
